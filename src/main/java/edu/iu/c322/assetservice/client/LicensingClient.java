@@ -17,7 +17,7 @@ public class LicensingClient {
         this.restTemplate = restTemplate;
     }
 
-    public Optional<License> getOrganization(int organizationId){
+    public Optional<License> getOrganization(int organizationId) {
         ResponseEntity<License> restExchange =
                 restTemplate.exchange(
                         "http://organization-service/organizations/{organizationId}",
@@ -25,4 +25,5 @@ public class LicensingClient {
                         null, License.class, organizationId);
 
         return Optional.ofNullable(restExchange.getBody());
+    }
 }
